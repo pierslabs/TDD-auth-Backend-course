@@ -1,0 +1,32 @@
+version: "3"
+
+services:
+  auth-service:
+    container_name: auth_service
+    image: auth-service
+    volumes:
+      - ./docker/volumes/auth-service:/usr/src/app
+      - /api/node_modules
+    build:
+      context: ../api
+      dockerfile: Dockerfile
+    ports:
+      - "3001:3000"
+    networks:
+      - auth-net
+
+  mongo:
+    image: mongo:latest
+    volumes:
+      - ./docker/volumes/mongo_db_auth:/data/db
+    ports:
+      - "27017:27017"
+    restart: on-failure
+    networks:
+      - auth-net
+networks:
+  auth-net:
+    driver: bridge
+
+volumes:
+  mongo_db_auth:
