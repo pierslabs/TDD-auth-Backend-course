@@ -1,1 +1,0 @@
-docker exec -it `docker ps | grep auth-service | head -n1 | awk '{print $1;}'` npm run wtest
