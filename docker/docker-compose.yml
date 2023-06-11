@@ -5,20 +5,21 @@ services:
     container_name: auth_service
     image: auth-service
     volumes:
-      - ./docker/volumes/auth-service:/usr/src/app
-      - /api/node_modules
+      - /app/node_modules
+      - ../api/:/app
     build:
       context: ../api
       dockerfile: Dockerfile
     ports:
       - "3001:3000"
+    restart: unless-stopped
     networks:
       - auth-net
 
   mongo:
     image: mongo:latest
     volumes:
-      - ./docker/volumes/mongo_db_auth:/data/db
+      - ./mongo_db_auth:/data/db
     ports:
       - "27017:27017"
     restart: on-failure
