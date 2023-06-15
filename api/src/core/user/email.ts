@@ -6,9 +6,10 @@ class Email {
   }
 
   private validateOrThrowException(value: string) {
-    if (!this.emailRegex.test(value)) {
-      throw new Error();
+    if (this.emailRegex.test(value)) {
+      return;
     }
+    throw new Error();
   }
 }
 export default Email;
