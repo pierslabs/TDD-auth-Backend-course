@@ -1,8 +1,8 @@
-import User from "../../../src/core/user/user";
-import Email from "../../../src/core/user/email";
-import Name from "../../../src/core/user/name";
-import UserMother from "../../mother/user.mother";
-import Password from "../../../src/core/user/password";
+import User from "../src/core/user/user";
+import Email from "../src/core/user/email";
+import Name from "../src/core/user/name";
+import UserMother from "./mother/user.mother";
+import Password from "../src/core/user/password";
 
 describe("User", () => {
   it("should create user with required name and email", () => {

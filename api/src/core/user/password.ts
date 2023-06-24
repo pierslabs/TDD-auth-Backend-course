@@ -1,3 +1,5 @@
+import InvalidUserPasswordException from "../domain/exception/invalid-user-password-exception";
+
 class Password {
   public static MIN_LENGHT: number = 2;
   public static MAX_LENGHT: number = 100;
@@ -10,7 +12,7 @@ class Password {
     const invalidFormat = this.isValidFormat(value);
 
     if (invalidLength || invalidFormat) {
-      throw new Error();
+      this.throwException();
     }
   }
 
@@ -27,6 +29,10 @@ class Password {
       ) === false
     );
   };
+
+  private throwException(): void {
+    throw new InvalidUserPasswordException();
+  }
 }
 
 export default Password;

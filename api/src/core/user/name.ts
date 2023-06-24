@@ -1,3 +1,5 @@
+import InvalidUserNameException from "../domain/exception/invalid-user-name-exception";
+
 class Name {
   public static MIN_LENGHT: number = 2;
   public static MAX_LENGHT: number = 25;
@@ -10,7 +12,7 @@ class Name {
     const invalidFormat = this.isValidFormat(value);
 
     if (invalidLength || invalidFormat) {
-      throw new Error();
+      this.trowException();
     }
   }
 
@@ -21,6 +23,10 @@ class Name {
   private isValidFormat = (value: string): boolean => {
     return /^[a-zA-Z][a-zA-Z\s]*[a-zA-Z]$/.test(value) === false;
   };
+
+  private trowException(): void {
+    throw new InvalidUserNameException();
+  }
 }
 
 export default Name;
