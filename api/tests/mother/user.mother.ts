@@ -3,6 +3,7 @@ import Email from "../../src/core/user/email";
 import Name from "../../src/core/user/name";
 import Password from "../../src/core/user/password";
 import { faker } from "@faker-js/faker";
+import UserRegisterRequest from "../../src/core/aplication/register/user-register-request";
 
 class UserMother {
   public static PASSWORD_TEST: string = "abcd1234!";
@@ -32,6 +33,18 @@ class UserMother {
 
   public static Email(email?: string): Email {
     return new Email(email || faker.internet.email());
+  }
+
+  public static UserRegisterRequest(
+    name?: string,
+    email?: string,
+    password?: string
+  ): UserRegisterRequest {
+    return new UserRegisterRequest(
+      UserMother.Name(name).value,
+      UserMother.Email(email).value,
+      UserMother.Password(password).value
+    );
   }
 }
 
