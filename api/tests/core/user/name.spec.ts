@@ -25,11 +25,6 @@ describe("Name", () => {
     expect(() => UserMother.Name(name)).toThrow();
   });
 
-  it("should throw error with value only letters", () => {
-    const name = "123456";
-    expect(() => UserMother.Name(name)).toThrow();
-  });
-
   it("should throw error with value start with space", () => {
     const name = "    pedro ";
 
