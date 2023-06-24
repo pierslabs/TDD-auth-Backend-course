@@ -22,8 +22,12 @@ class UserMother {
     return new Password(password ? password : UserMother.PASSWORD_TEST);
   }
 
-  public static User(name?: string, email?: string): User {
-    return new User(UserMother.Name(name), UserMother.Email(email));
+  public static User(name?: string, email?: string, password?: string): User {
+    return new User(
+      UserMother.Name(name),
+      UserMother.Email(email),
+      UserMother.Password(password)
+    );
   }
 
   public static Email(email?: string): Email {
