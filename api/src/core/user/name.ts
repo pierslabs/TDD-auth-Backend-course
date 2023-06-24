@@ -1,6 +1,6 @@
 class Name {
-  public MIN_LENGHT: number = 2;
-  public MAX_LENGHT: number = 25;
+  public static MIN_LENGHT: number = 2;
+  public static MAX_LENGHT: number = 25;
   constructor(public readonly value: string) {
     this.validateOrThrowException(value);
   }
@@ -15,7 +15,7 @@ class Name {
   }
 
   private isValidLength = (value: string): boolean => {
-    return value.length < this.MIN_LENGHT || value.length > this.MAX_LENGHT;
+    return value.length < Name.MIN_LENGHT || value.length > Name.MAX_LENGHT;
   };
 
   private isValidFormat = (value: string): boolean => {
